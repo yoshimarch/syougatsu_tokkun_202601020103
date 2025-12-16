@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正月特訓 実施要項</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #C41E3A;
+            --gold: #D4AF37;
+            --dark-red: #8B0000;
+            --cream: #FFF8E7;
+            --dark: #2C2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: linear-gradient(135deg, #FFF8E7 0%, #FFE4E1 50%, #FFF8E7 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ヘッダー */
+        .header {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(196, 30, 58, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .header::before {
+            content: "🎍";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 60px;
+            opacity: 0.8;
+        }
+
+        .header::after {
+            content: "🎍";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) scaleX(-1);
+            font-size: 60px;
+            opacity: 0.8;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark-red);
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-top: 15px;
+            font-size: 1rem;
+        }
+
+        /* カード */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary-red);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card-number {
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .card-content {
+            padding-left: 65px;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+
+        .info-label {
+            background: #F5F5F5;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            color: var(--dark);
+            min-width: 100px;
+            font-size: 0.9rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            color: #444;
+            line-height: 1.6;
+            padding-top: 4px;
+        }
+
+        /* 重要事項ボックス */
+        .important-box {
+            background: linear-gradient(135deg, #FFF3CD 0%, #FFE4B5 100%);
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .important-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .important-box li {
+            color: #664d03;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .important-box li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            font-size: 0.9rem;
+        }
+
+        /* 必須ボックス */
+        .required-box {
+            background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+            border: 2px solid var(--primary-red);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .required-box h4 {
+            color: var(--dark-red);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .required-box p {
+            color: var(--dark-red);
+            font-weight: 500;
+        }
+
+        /* 対象バッジ */
+        .target-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            color: #1565C0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid #90CAF9;
+        }
+
+        /* 講師セクション */
+        .staff-card {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border-left-color: #4CAF50;
+        }
+
+        .staff-card .card-number {
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+        }
+
+        .staff-info {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .staff-icon {
+            font-size: 2.5rem;
+        }
+
+        .staff-text {
+            color: #2E7D32;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* フッター */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer .decoration {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* 馬年デコレーション */
+        .horse-decoration {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .horse-icon {
+            font-size: 3rem;
+            animation: gallop 1s ease-in-out infinite;
+        }
+
+        .horse-icon:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .horse-icon:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes gallop {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .ema-banner {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+            border-radius: 12px;
+            padding: 20px 30px;
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            position: relative;
+        }
+
+        .ema-banner::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background: #D4AF37;
+            border-radius: 5px;
+        }
+
+        .ema-banner::after {
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 15px;
+            background: #8B0000;
+            border-radius: 2px;
+        }
+
+        .ema-text {
+            color: #FFE4B5;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .ema-horse {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .horseshoe-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .horseshoe-line {
+            height: 2px;
+            width: 80px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header::before,
+            .header::after {
+                font-size: 40px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card-content {
+                padding-left: 0;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .info-label {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <header class="header">
+            <h1>正月特訓</h1>
+            <p class="subtitle">実施要項</p>
+            <span class="year-badge">🐴 2026年 🐴</span>
+        </header>
+
+        <!-- 馬年デコレーション -->
+        <div class="horse-decoration">
+            <span class="horse-icon">🐴</span>
+            <span class="horse-icon">🏇</span>
+            <span class="horse-icon">🐴</span>
+        </div>
+
+        <!-- 絵馬バナー -->
+        <div class="ema-banner">
+            <span class="ema-horse">🐎</span>
+            <span class="ema-text">合格祈願</span>
+        </div>
+
+        <!-- 区切り線 -->
+        <div class="horseshoe-divider">
+            <span class="horseshoe-line"></span>
+            <span>🎠</span>
+            <span class="horseshoe-line"></span>
+        </div>
+
+        <!-- ① 北海道入試過去問演習 -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">①</div>
+                <h2 class="card-title">北海道入試過去問演習（2025年度）</h2>
+            </div>
+            <div class="card-content">
+                <div class="info-row">
+                    <span class="info-label">📚 内容</span>
+                    <span class="info-value">北海道公立高校入試の過去問演習</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">🖨️ 印刷</span>
+                    <span class="info-value">教務室にて実施</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">📝 備考</span>
+                    <span class="info-value">現在納品予定。集計なし。SocoreLive＆MissShare（正答率・順位リアルタイムWeb）は使用可</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- ② 入試演習プリント -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">②</div>
+                <h2 class="card-title">入試演習プリント（全12回）</h2>
+            </div>
+            <div class="card-content">
+                <div class="info-row">
+                    <span class="info-label">📚 内容</span>
+                    <span class="info-value">教科別 入試演習プリント</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">🖨️ 印刷</span>
+                    <span class="info-value">各校舎にて実施</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">🔢 回数</span>
+                    <span class="info-value">入試演習 全12回</span>
+                </div>
+
+            </div>
+        </article>
+
+        <!-- ③ 教科別分野別演習プリント -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">③</div>
+                <h2 class="card-title">教科別分野別演習プリント（国数英理社）</h2>
+            </div>
+            <div class="card-content">
+                <div class="info-row">
+                    <span class="info-label">📚 内容</span>
+                    <span class="info-value">教科別・分野別 演習プリント（国語・数学・英語・理科・社会）</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">🖨️ 印刷</span>
+                    <span class="info-value">各校舎にて実施</span>
+                </div>
+
+                <div class="important-box">
+                    <h4>⚠️ 重要事項</h4>
+                    <ul>
+                        <li><strong>最終模試でも使用予定</strong></li>
+                        <li>配布状況を必ず管理すること（重複配布防止）</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- ④ 時事問題クイズ -->
+        <article class="card">
+            <div class="card-header">
+                <div class="card-number">④</div>
+                <h2 class="card-title">2025年の時事問題クイズ</h2>
+            </div>
+            <div class="card-content">
+                <div class="info-row">
+                    <span class="info-label">🎯 対象</span>
+                    <div class="target-badges">
+                        <span class="badge">中学受験 小学6年生</span>
+                        <span class="badge">中学3年生</span>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">📚 内容</span>
+                    <span class="info-value">2025年 時事問題クイズ</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">❓ 問題数</span>
+                    <span class="info-value">全40問</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">⏱️ 所要時間</span>
+                    <span class="info-value">約15分</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">💻 実施方法</span>
+                    <span class="info-value">タブレットICT「リンク集」に「正月特訓」特設リンクを設置</span>
+                </div>
+
+                <div class="required-box">
+                    <h4>🚨 必須事項</h4>
+                    <p><strong>札幌日本大学中学校受験者は必須</strong><br>
+                    時事問題が必ず出題されるため、必ず実施すること</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- 講師稼働 -->
+        <article class="card staff-card">
+            <div class="card-header">
+                <div class="card-number">📋</div>
+                <h2 class="card-title">講師稼働に関する扱い</h2>
+            </div>
+            <div class="card-content">
+                <div class="staff-info">
+                    <span class="staff-icon">💼</span>
+                    <p class="staff-text">昼休みを除く稼働時間については、<br>役職に関わらず業務通常給にて対応する。</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- フッター -->
+        <footer class="footer">
+            <div class="decoration">🐴🎌 謹賀新年 🎌🐴</div>
+            <p>馬力全開で合格を勝ち取ろう！</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #999;">🏇 充実した正月特訓になりますように 🏇</p>
+        </footer>
+    </div>
+</body>
+</html>
