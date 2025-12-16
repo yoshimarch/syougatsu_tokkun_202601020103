@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>正月特訓 実施要項</title>
+    <title>正月特訓 実施要項（生徒向け）</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -369,6 +369,121 @@
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
 
+        /* 実施日程バナー */
+        .schedule-banner {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            border-radius: 16px;
+            padding: 25px 30px;
+            margin: 25px 0;
+            box-shadow: 0 6px 25px rgba(26, 35, 126, 0.3);
+        }
+
+        .schedule-title {
+            color: white;
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .schedule-days {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .schedule-day {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 30px;
+            text-align: center;
+            min-width: 180px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .day-date {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--dark);
+        }
+
+        .day-week {
+            background: var(--primary-red);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .day-time {
+            color: #555;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* タイムテーブル */
+        .timetable {
+            background: #F8F9FA;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .timetable h4 {
+            color: var(--dark);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timetable-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .timetable-row:last-child {
+            border-bottom: none;
+        }
+
+        .timetable-day {
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 15px;
+        }
+
+        .timetable-content {
+            flex: 1;
+        }
+
+        .timetable-subjects {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .timetable-note {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
         /* レスポンシブ */
         @media (max-width: 768px) {
             .header h1 {
@@ -405,7 +520,7 @@
         <header class="header">
             <h1>正月特訓</h1>
             <p class="subtitle">実施要項</p>
-            <span class="year-badge">🐴 2026年 🐴</span>
+            <span class="year-badge">🐴 2026年 正月 🐴</span>
         </header>
 
         <!-- 馬年デコレーション -->
@@ -419,6 +534,27 @@
         <div class="ema-banner">
             <span class="ema-horse">🐎</span>
             <span class="ema-text">合格祈願</span>
+        </div>
+
+        <!-- 実施日程 -->
+        <div class="schedule-banner">
+            <h2 class="schedule-title">📅 実施日程</h2>
+            <div class="schedule-days">
+                <div class="schedule-day">
+                    <div class="day-header">
+                        <span class="day-date">1月2日</span>
+                        <span class="day-week">金</span>
+                    </div>
+                    <div class="day-time">9:00 〜 16:20</div>
+                </div>
+                <div class="schedule-day">
+                    <div class="day-header">
+                        <span class="day-date">1月3日</span>
+                        <span class="day-week">土</span>
+                    </div>
+                    <div class="day-time">9:00 〜 16:20</div>
+                </div>
+            </div>
         </div>
 
         <!-- 区切り線 -->
@@ -445,7 +581,25 @@
                 </div>
                 <div class="info-row">
                     <span class="info-label">📝 備考</span>
-                    <span class="info-value">現在納品予定。集計なし。SocoreLive＆MissShare（正答率・順位リアルタイムWeb）は使用可</span>
+                    <span class="info-value">現在納品予定。本部集計なし。ScoreLive&MissShareは使用可。</span>
+                </div>
+
+                <div class="timetable">
+                    <h4>🕐 タイムスケジュール</h4>
+                    <div class="timetable-row">
+                        <div class="timetable-day">1月2日（金）</div>
+                        <div class="timetable-content">
+                            <div class="timetable-subjects">国語・社会・英語（各50分）</div>
+                            <div class="timetable-note">＋ 弱点補強</div>
+                        </div>
+                    </div>
+                    <div class="timetable-row">
+                        <div class="timetable-day">1月3日（土）</div>
+                        <div class="timetable-content">
+                            <div class="timetable-subjects">数学・理科（各50分）</div>
+                            <div class="timetable-note">＋ 弱点補強</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
@@ -510,12 +664,12 @@
                     <span class="info-label">🎯 対象</span>
                     <div class="target-badges">
                         <span class="badge">中学受験 小学6年生</span>
-                        <span class="badge">中学3年生</span>
+                        <span class="badge">高校受験 中学3年生</span>
                     </div>
                 </div>
                 <div class="info-row">
                     <span class="info-label">📚 内容</span>
-                    <span class="info-value">2025年 時事問題クイズ</span>
+                    <span class="info-value">2025年の時事問題クイズ</span>
                 </div>
                 <div class="info-row">
                     <span class="info-label">❓ 問題数</span>
@@ -547,7 +701,7 @@
             <div class="card-content">
                 <div class="staff-info">
                     <span class="staff-icon">💼</span>
-                    <p class="staff-text">昼休みを除く稼働時間については、<br>役職に関わらず業務通常給にて対応する。</p>
+                    <p class="staff-text">昼休みを除く稼働時間については、<br>業務通常給にて対応する。</p>
                 </div>
             </div>
         </article>
@@ -561,3 +715,4 @@
     </div>
 </body>
 </html>
+
